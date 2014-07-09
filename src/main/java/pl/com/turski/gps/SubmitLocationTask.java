@@ -17,13 +17,13 @@ public class SubmitLocationTask extends AsyncTask<LocationSubmitModel, Void, Voi
             Location location = App.getLocationService();
             LocationSubmitModel submitModel = submitModels[0];
             if (submitModel == null) {
-                Log.w("LOC_RECEIVER", "SubmitModel is null");
+                Log.w("TRAK_GPS", "SubmitModel is null");
                 return null;
             }
 
             location.addVehicleLocation(submitModel.getVehicleId(), submitModel.getLatitude(), submitModel.getLongitude()).execute();
         } catch (IOException e) {
-            Log.e("LOC_RECEIVER", "IOException occured during adding vehicle localization", e);
+            Log.e("TRAK_GPS", "IOException occured during adding vehicle localization", e);
             //App.showAlert("Wystąpił błąd podczas wysyłania lokalizacji na serwer: " + e.getMessage());
         }
         return null;

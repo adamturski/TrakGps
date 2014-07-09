@@ -27,7 +27,7 @@ public class LocationReceiver extends BroadcastReceiver {
     }
 
     private void updateRemote(final double latitude, final double longitude) {
-        Log.d("LOC_RECEIVER", "Location to send to server: [latitude='" + latitude + "', longitude='" + longitude + "']");
+        Log.d("TRAK_GPS", "Sending location to server: [latitude='" + latitude + "', longitude='" + longitude + "']");
         SharedPreferences settings = App.getAppContext().getSharedPreferences("pl.com.turski.trak.gps", Context.MODE_PRIVATE);
         String vehicleId = settings.getString(SettingKey.VEHICLE_ID.getKey(), SettingKey.VEHICLE_ID.getDefValue());
         LocationSubmitModel submitModel = new LocationSubmitModel(Long.parseLong(vehicleId),latitude,longitude);
