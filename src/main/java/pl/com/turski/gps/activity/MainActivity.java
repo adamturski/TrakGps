@@ -50,10 +50,10 @@ public class MainActivity extends Activity {
                     .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
+                            finish();
                         }
                     });
             builder.create().show();
-            finish();
         }
     }
 
