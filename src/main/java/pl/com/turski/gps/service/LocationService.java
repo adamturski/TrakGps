@@ -14,6 +14,8 @@ import pl.com.turski.gps.settings.SettingKey;
 
 public class LocationService extends Service {
 
+    private Thread locationThread;
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         int ret = super.onStartCommand(intent, flags, startId);
@@ -27,7 +29,7 @@ public class LocationService extends Service {
     }
 
     private void addLocationListener() {
-        Thread triggerService = new Thread(new Runnable() {
+        locationThread = new Thread(new Runnable() {
             public void run() {
                 try {
                     SharedPreferences settings = getSharedPreferences("pl.com.turski.trak.gps", Context.MODE_PRIVATE);
@@ -46,6 +48,12 @@ public class LocationService extends Service {
                 }
             }
         }, "LocationThread");
-        triggerService.start();
+        locationThread.start();
+    }
+
+    @Override
+    public void onDestroy() {
+        locationThread.interrupt();
+        super.onDestroy();    //To change body of overridden methods use File | Settings | File Templates.
     }
 }
