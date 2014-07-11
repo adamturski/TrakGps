@@ -1,4 +1,4 @@
-package pl.com.turski.gps;
+package pl.com.turski.gps.settings;
 
 /**
  * User: Adam

@@ -1,10 +1,11 @@
-package pl.com.turski.gps;
+package pl.com.turski.gps.listener;
 
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
+import pl.com.turski.gps.App;
 
 /**
  * User: Adam

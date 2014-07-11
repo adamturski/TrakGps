@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.appspot.trak.location.Location;
 import com.google.api.client.http.apache.ApacheHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
+import pl.com.turski.gps.settings.SettingKey;
 
 /**
  * User: Adam

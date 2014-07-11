@@ -1,4 +1,4 @@
-package pl.com.turski.gps;
+package pl.com.turski.gps.service;
 
 import android.app.Service;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.IBinder;
 import android.os.Looper;
+import pl.com.turski.gps.listener.LocationListenerImpl;
+import pl.com.turski.gps.settings.SettingKey;
 
 public class LocationService extends Service {
 
@@ -21,7 +23,7 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return null;
     }
 
     private void addLocationListener() {
