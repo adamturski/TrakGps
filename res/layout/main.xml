@@ -12,7 +12,7 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_weight="1"/>
-    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Lokalizacja ręczna" style="@android:style/Widget.Holo.Button.Borderless.Small" android:id="@+id/"/>
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Lokalizacja ręczna" style="@android:style/Widget.Holo.Button.Borderless.Small"/>
     <EditText android:id="@+id/testLocationLat" android:layout_width="fill_parent" android:layout_height="wrap_content"
               android:layout_gravity="center" android:inputType="numberDecimal" android:hint="lat"/>
     <EditText android:id="@+id/testLocationLng" android:layout_width="fill_parent" android:layout_height="wrap_content"
