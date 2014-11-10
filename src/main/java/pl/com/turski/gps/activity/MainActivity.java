@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import pl.com.turski.gps.service.LocationService;
 import pl.com.turski.trak.gps.R;
@@ -20,6 +21,9 @@ public class MainActivity extends Activity {
     private Intent locationService;
 
     Button settingsButton;
+    Button testLocationButton;
+    TextView testLocationLat;
+    TextView testLocationLng;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,11 +36,19 @@ public class MainActivity extends Activity {
     }
 
     private void initView() {
+        testLocationLat = (TextView) findViewById(R.id.testLocationLat);
+        testLocationLng = (TextView) findViewById(R.id.testLocationLng);
         settingsButton = (Button) findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
+            }
+        });
+        testLocationButton = (Button) findViewById(R.id.testLocationButton);
+        testLocationButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendTestLocation();
             }
         });
     }
@@ -80,5 +92,20 @@ public class MainActivity extends Activity {
                 Toast.makeText(thisActivity, message, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void sendTestLocation() {
+        try {
+            Double lat = Double.parseDouble(String.valueOf(testLocationLat.getText()));
+            Double lng = Double.parseDouble(String.valueOf(testLocationLng.getText()));
+
+            Intent locationIntent = new Intent();
+            locationIntent.setAction("pl.com.turski.trak.gps.intent.action.LOCATION");
+            locationIntent.putExtra("latitude", lat);
+            locationIntent.putExtra("longitude", lng);
+            this.sendBroadcast(locationIntent);
+        } catch (NumberFormatException ex) {
+            showToast("Wprowadź prawidłowe wartości lat i lng");
+        }
     }
 }

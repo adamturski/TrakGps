@@ -5,22 +5,22 @@ package pl.com.turski.gps.model;
  */
 public class LocationSubmitModel {
 
-    private Long vehicleId;
+    private String locatorId;
     private Double latitude;
     private Double longitude;
 
-    public LocationSubmitModel(Long vehicleId, Double latitude, Double longitude) {
-        this.vehicleId = vehicleId;
+    public LocationSubmitModel(String locatorId, Double latitude, Double longitude) {
+        this.locatorId = locatorId;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public Long getVehicleId() {
-        return vehicleId;
+    public String getLocatorId() {
+        return locatorId;
     }
 
-    public void setVehicleId(Long vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setLocatorId(String locatorId) {
+        this.locatorId = locatorId;
     }
 
     public Double getLatitude() {

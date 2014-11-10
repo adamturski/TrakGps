@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TrakGps</string>
+    <string name="save">Zapisz</string>
+    <string name="cancel">Anuluj</string>
+    <string name="miliSecondAbreviation">ms</string>
+    <string name="localizationRange">Lokalizacja co:</string>
+    <string name="serverUrl">Adres serwera:</string>
+    <string name="gpsLocatorId">Identyfikator lokalizatora:</string>
+    <string name="setting">Ustawienia</string>
 </resources>

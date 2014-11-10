@@ -13,7 +13,7 @@ import pl.com.turski.trak.gps.R;
 public class SettingActivity extends Activity {
 
     TextView serverUrlText;
-    TextView vehicleIdText;
+    TextView locatorIdText;
     TextView localizationFrequencyText;
     Button saveButton;
     Button cancelButton;
@@ -29,8 +29,8 @@ public class SettingActivity extends Activity {
         SharedPreferences settings = this.getSharedPreferences("pl.com.turski.trak.gps", Context.MODE_PRIVATE);
         serverUrlText = (TextView) findViewById(R.id.serverUrlText);
         serverUrlText.setText(settings.getString(SettingKey.SERVER_URL.getKey(), SettingKey.SERVER_URL.getDefValue()));
-        vehicleIdText = (TextView) findViewById(R.id.vehicleIdText);
-        vehicleIdText.setText(settings.getString(SettingKey.VEHICLE_ID.getKey(), SettingKey.VEHICLE_ID.getDefValue()));
+        locatorIdText = (TextView) findViewById(R.id.locatorIdText);
+        locatorIdText.setText(settings.getString(SettingKey.GPS_LOCATOR_IDENTIFIER.getKey(), SettingKey.GPS_LOCATOR_IDENTIFIER.getDefValue()));
         localizationFrequencyText = (TextView) findViewById(R.id.localizationFrequencyText);
         localizationFrequencyText.setText(settings.getString(SettingKey.LOCALIZATION_FREQUENCY.getKey(), SettingKey.LOCALIZATION_FREQUENCY.getDefValue()));
         saveButton = (Button) findViewById(R.id.saveButton);
@@ -52,8 +52,8 @@ public class SettingActivity extends Activity {
         SharedPreferences settings = this.getSharedPreferences("pl.com.turski.trak.gps", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(SettingKey.SERVER_URL.getKey(), serverUrlText.getText().toString());
-        editor.putString(SettingKey.VEHICLE_ID.getKey(), vehicleIdText.getText().toString());
+        editor.putString(SettingKey.GPS_LOCATOR_IDENTIFIER.getKey(), locatorIdText.getText().toString());
         editor.putString(SettingKey.LOCALIZATION_FREQUENCY.getKey(), localizationFrequencyText.getText().toString());
-        editor.commit();
+        editor.apply();
     }
 }

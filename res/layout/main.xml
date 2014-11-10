@@ -2,12 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
-    <Button
-            android:layout_width="fill_parent"
+              android:layout_height="fill_parent" android:padding="16dp" android:id="@+id/">
+    <Button android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Ustawienia"
+            android:text="@string/setting"
             android:id="@+id/settingsButton" android:layout_gravity="center"/>
+    <!-- Demo purposes only -->
+    <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Lokalizacja ręczna" style="@android:style/Widget.Holo.Button.Borderless.Small"/>
+    <EditText android:id="@+id/testLocationLat" android:layout_width="fill_parent" android:layout_height="wrap_content"
+              android:layout_gravity="center" android:inputType="numberDecimal" android:hint="lat"/>
+    <EditText android:id="@+id/testLocationLng" android:layout_width="fill_parent" android:layout_height="wrap_content"
+              android:layout_gravity="center" android:inputType="numberDecimal" android:hint="lng"/>
+
+    <Button android:id="@+id/testLocationButton" android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_gravity="center" android:text="Wyślij lokalizację"/>
+    <!-- Demo purposes only -->
 </LinearLayout>
 
